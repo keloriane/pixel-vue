@@ -89,6 +89,7 @@ export default {
   font-weight: 300;
   font-size: 16px;
   line-height: 140%;
+
 }
 
 .text__skills__container {
@@ -105,6 +106,9 @@ export default {
 .skill__name:hover{
   color: #EB5757;
 
+}
+.skill__name {
+  font-weight: 800;
 }
 
 </style>

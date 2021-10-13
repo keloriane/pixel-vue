@@ -2,7 +2,12 @@
   <section class="projects__container">
     <Home_Project_Card_Container class="projects__card__container" >
 
-        <Project_Card :image="project.image" :title="project.name" v-for="project in projects" :key="project.name" />
+
+
+          <Project_Card v-for="project in projects" :image="project.image" :title="project.name" :key="project.name" :url="`project/${project.slug}`" />
+
+
+
 
 
     </Home_Project_Card_Container>
@@ -10,7 +15,9 @@
 </template>
 
 <script>
-import {Home_Project_Card_Container} from "./home-projects.style"
+import {Home_Project_Card_Container} from "./home-projects.style";
+import {mapState} from 'vuex';
+
 import Project_Card from "~/components/Home_Projects/Project_Card";
 export default {
   name : "Home_Project",
@@ -18,19 +25,11 @@ export default {
     Project_Card,
     Home_Project_Card_Container
   },
-
-
-  data() {
-    return {
-      projects : [
-        { name:"Start Creation &co" , image: "./assets/images/startcreation.png" },
-        /*  { name:"Samapass" , image: "./assets/images/samapass.png" },*/
-        { name:"Buddy Belgium" , image: "./assets/images/buddybelgium.png" },
-        { name:"Cercle D'histoire D'Auderghem" , image: "./assets/images/chauderghem.png" },
-
-      ]
-    }
-  }
+  computed:{
+    ...mapState([
+      'projects'
+    ])
+  },
 }
 
 

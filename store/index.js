@@ -1,24 +1,22 @@
 
+import {projects} from "~/store/data";
+
 export const state = () => ({
-  users:[]
+  projects
 })
 
 export const getters = {
-
+  getProjectId:(state) => (slug) => {
+     return state.projects.find(project => project.slug === slug)
+  }
 }
 
 export const actions = {
-  async getUsers() {
-    const users = await axios.post("https://randomuser.me./api/?results=10")
-    commit('addUsers' , users)
-    return users
-  }
+
 }
 
 export const mutations= {
-  addUsers(state , users ) {
-    state.users.push({...users})
-  }
+
 }
 
 
