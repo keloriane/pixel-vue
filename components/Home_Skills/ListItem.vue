@@ -3,22 +3,27 @@
     stagger="list-item"
     :flipId="flipId" :shouldInvert="shouldFlip"
 
+
   >
 
     <div class="list__item__container" :class="{isExpanded: expanded}">
       <Flipped :inverseFlipId="flipId">
         <div>
           <Flipped :flipId="flipIdAvatar">
-            <p
-              class="skill__name"
-            >{{ skillName }}</p>
+            <div>
+              <p
+                class="skill__name"
+              >{{ skillName }}</p>
+              <Flipped :flipId="flipImage" @onStart="onStart">
+
+                <img class="image-skill" :src="imageSkill" :alt="imageSkill">
+              </Flipped>
+
+            </div>
 
           </Flipped>
-          <div class="additional-content" v-if="expanded">
 
-            <div class="image__container">
-              <img class="image-skill" :src="imageSkill" alt="">
-            </div>
+          <div class="additional-content" v-if="expanded">
             <div class="text__skills__container">
               <p class="skill-description">
                 {{ skillDescription }}
@@ -49,10 +54,18 @@ export default {
     },
     flipIdAvatar() {
       return `listItem-avatar-${this.item}`
+    },
+    flipImage() {
+      return `listItem-image-${this.item}`
     }
   },
-  methods:{
-    shouldFlip(prev , current) {
+  methods: {
+
+    onStart({el}) {
+      el.classList.add('animated-in')
+    },
+
+    shouldFlip(prev, current) {
 
       return prev === this.item || current === this.item
 
@@ -96,19 +109,35 @@ export default {
   width: 100%;
   max-width: 394px;
 }
-.image-skill{
+
+.image-skill {
   position: absolute;
   right: -70%;
   top: 2%;
   z-index: -1;
 
 }
-.skill__name:hover{
+
+.skill__name:hover {
   color: #EB5757;
 
 }
+
 .skill__name {
   font-weight: 800;
+}
+
+@keyframes fade_in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100%{
+    opacity: 1;
+  }
+}
+.animated-in {
+  animation: fade_in 0.5 forwards;
 }
 
 </style>

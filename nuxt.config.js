@@ -21,6 +21,7 @@ export default {
       {src: "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js" },
       {src: "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/ScrollTrigger.min.js" },
       {src: "https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" },
+      {src:"https://pixijs.download/release/pixi.js"}
     ]
   },
 
