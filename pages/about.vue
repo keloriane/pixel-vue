@@ -1,6 +1,6 @@
 <template>
   <main>
-
+    <Menu />
     <About_Header/>
     <About_Technologies :item="techno.icons" :title="techno.title" :text="techno.text"/>
     <About_Technologies :item="software.icons" :title="software.title" :text="software.text"/>
@@ -14,9 +14,11 @@
 import About_Header from "~/components/About_Header/";
 import About_Technologies from "~/components/About_Technologies";
 import Footer from "~/components/Footer/Footer";
+import Menu from "~/components/Menu";
 
 export default {
   components: {
+    Menu,
     About_Technologies,
     About_Header,
     Footer

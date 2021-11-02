@@ -1,6 +1,6 @@
 <template>
 
-  <Project_Item_Card>
+  <Project_Item_Card class="hover-state-true" >
     <NuxtLink :to="url">
       <img :src="image" alt="">
       <Project_Item_Layer>

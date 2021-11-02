@@ -6,18 +6,18 @@
           <h2>Contact us</h2>
         </div>
         <div class="action_call">
-          <a href="">
+          <NuxtLink to="/contact">
             If you want to get in touch or want to know more, please contact us.
-          </a>
+          </NuxtLink>
         </div>
       </div>
     </div>
     <div class="footer_info">
       <div class="page_footer">
         <ul>
-          <li><a href="/about">About</a></li>
-          <li><a href="">Projects</a></li>
-          <li><a href="/contact">Contact</a></li>
+          <li><NuxtLink to="/about">About</NuxtLink></li>
+          <li><NuxtLink to="/">Projects</NuxtLink></li>
+          <li><NuxtLink to="contact">Contact</NuxtLink></li>
 
         </ul>
       </div>

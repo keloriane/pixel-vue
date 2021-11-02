@@ -131,7 +131,8 @@ export default {
     let wordsSplitted = document.querySelectorAll('.words-inside');
     const headerTimeline = gsap.timeline();
     headerTimeline
-      .from(wordsSplitted, {duration: .3, rotationX:145, y:50 , stagger: 0.2, opacity: 0, delay: 1 , yoyo: true})
+      .from(wordsSplitted, {duration: .4, rotationX:145, y:50 , stagger: 0.07, opacity: 0, delay: .5 , yoyo: true})
+      .from('.blob-motion-container',{duration:.5, autoAlpha:0, ease: 'slow(.215,.61,.355,1)', yoyo:true})
   }
 }
 </script>
@@ -148,11 +149,11 @@ export default {
 }
 .header-action-circle {
   position: absolute;
-  top: 80%;
-  left: 41%;
+  top: 70%;
+  left: 45%;
   &:hover {
     transform: scale(1.5);
-    transition: 1s ease-in;
+    transition: 1.8s cubic-bezier(.215,.61,.355,1) .2s;
     display: none;
   }
 

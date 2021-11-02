@@ -33,6 +33,7 @@ export const Project_Item_Layer = styled.div `
   border-radius: 2px;
   position: relative;
   z-index: 1;
+  pointer-events: none;
 `;
 
 
