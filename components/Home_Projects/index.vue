@@ -1,11 +1,18 @@
 <template>
   <section>
     <div class="projects__container">
-      <div class="projects_call_to_action">
-        see all our projects
-      </div>
-      <div class="project_section_title">
-        <h2 class="section_title" > Recent Projects</h2>
+      <div class="section_title-action">
+        <div class="title-action__wrapper">
+          <div class="projects_call_to_action">
+
+            <h3 class="accent">see all our projects</h3>
+          </div>
+          <div class="project_section_title">
+
+            <h2 class="section_title"> Recent Projects</h2>
+          </div>
+        </div>
+
       </div>
       <Home_Project_Card_Container class="projects__card__container">
 
@@ -41,26 +48,40 @@ export default {
 
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 section{
   width: 100vw;
   background-color: #fff;
-  padding-bottom: 185px;
+  padding-bottom: 318px;
+  padding-top: 168px;
 }
-.section_title{
-  font-style: normal;
-  font-weight: 600;
-  font-size: 169px;
-  line-height: 98.5%;
+
+.project_section_title {
+  position: relative;
+}
+.section_title-action{
   position: absolute;
   top: -15%;
-  left: -5%;
-  display: flex;
-  align-items: center;
-  letter-spacing: -0.02em;
-  text-transform: capitalize;
-  color: #000000;
-  box-sizing: border-box;
+  h3 {
+
+  }
+  h2 {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 11vw;
+    line-height: 98.5%;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.02em;
+    text-transform: capitalize;
+    color: #000000;
+    box-sizing: border-box;
+    left:-25%;
+    position: absolute;
+    width: 100vw;
+
+
+  }
 }
 .projects__container {
   margin: 200px auto;

@@ -2,7 +2,7 @@
 
 <div class="About_Header_Container">
   <div class="About_Header_Image">
-    <img src="~/assets/images/about-header.png" />
+    <img src="~/assets/images/about-header.png" alt="à propos photo équipe" />
   </div>
   <div class="About_Header_Text">
     <h2>About</h2>
@@ -30,6 +30,7 @@ import {
   About_Header_Image,
   About_Header_Container,
 } from './about-header.style';
+import gsap from 'gsap';
 
 
 
@@ -40,6 +41,12 @@ export default {
     About_Header_Container,
     About_Header_Text,
     About_Header_Image
+  },
+  mounted(){
+    gsap.from('.About_Header_Image',{
+      duration: 1,
+      opacity:0
+        })
   }
 }
 </script>

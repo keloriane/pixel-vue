@@ -129,10 +129,11 @@ export default {
       });
     });
     let wordsSplitted = document.querySelectorAll('.words-inside');
-    const headerTimeline = gsap.timeline();
+   /* const headerTimeline = gsap.timeline();
     headerTimeline
-      .from(wordsSplitted, {duration: .4, rotationX:145, y:50 , stagger: 0.07, opacity: 0, delay: .5 , yoyo: true})
-      .from('.blob-motion-container',{duration:.5, autoAlpha:0, ease: 'slow(.215,.61,.355,1)', yoyo:true})
+      .from('.header-hero',{duration:.5,opacity:0, delay:5})
+      .from(wordsSplitted, {duration: .4, rotationX:145, y:50 , stagger: 0.07, opacity: 0, delay: .5,ease: 'slow(.215,.61,.355,1)' , yoyo: true})
+      .from('.blob-motion-container',{duration:.5, autoAlpha:0, ease: 'slow(.215,.61,.355,1)', yoyo:true})*/
   }
 }
 </script>
@@ -150,7 +151,7 @@ export default {
 .header-action-circle {
   position: absolute;
   top: 70%;
-  left: 45%;
+  left: 50%;
   &:hover {
     transform: scale(1.5);
     transition: 1.8s cubic-bezier(.215,.61,.355,1) .2s;
@@ -178,7 +179,7 @@ export default {
   width: 100%;
   max-width: 883px;
   margin: auto;
-  height: 100vh;
+  height: 108vh;
 }
 @media (max-width: 845px) {
   .header-hero {

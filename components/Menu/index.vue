@@ -71,7 +71,7 @@ export default {
             duration: .3,
             opacity: 0
           })
-          gsap.to("#main_menu", {top: "-100%", duration: .3, delay: .4})
+          gsap.to("#main_menu", {top: "-103%", duration: .3, delay: .4})
         }
       })
       /*   menuTimelineClose
@@ -94,11 +94,7 @@ export default {
   mounted() {
 
 
-    gsap.from('#menu', {
-      duration: 1,
-      delay: 1,
-      opacity: 0
-    })
+
     /*  const menuActionOpen = document.querySelector('#menu-button')
       const menuActionClose = document.querySelector('#close-button')
       menuActionOpen.addEventListener("click" , ()=> {
@@ -115,7 +111,11 @@ export default {
 <template>
   <div id="menu">
     <div class="menu_action">
-      <h1>PixelStudio <span class="accent">.</span></h1>
+      <h1>
+        <NuxtLink to="/">
+          <span class="accent">Pxl</span> Studio <span class="accent">.</span>
+        </NuxtLink>
+      </h1>
       <button id="menu-button" v-on:click="handleOpen">
         menu <span class="accent">.</span>
       </button>
@@ -124,7 +124,7 @@ export default {
       <div class="inner_menu">
         <nav class="menu_container">
           <div id="title">
-            <NuxtLink to="/">PixelStudio <span class="accent">.</span></NuxtLink>
+            <NuxtLink to="/"><span class="accent">Pxl</span> Studio <span class="accent">.</span></NuxtLink>
 
           </div>
 
@@ -169,10 +169,13 @@ export default {
   justify-content: space-between;
   width: 80vw;
   margin: 20px auto;
+  a {
+    text-decoration: none;
+    color: #282038;
+  }
 
   h1 {
     font-size: 30px;
-    color: #282038;
   }
 }
 
@@ -226,6 +229,9 @@ export default {
 
 .menu_item {
   overflow: hidden;
+  &:hover {
+    color: #EB5757;
+  }
 }
 
 .menu_link {
@@ -235,7 +241,6 @@ export default {
   font-weight: 700;
   text-transform: uppercase;
   font-size: 10vw;
-
   &:hover {
     color: #EB5757;
   }
@@ -252,7 +257,7 @@ export default {
   height: 100vh;
   position: fixed;
   z-index: 1000;
-  top: -100%;
+  top: -103%;
   /*  transition: 0.8s cubic-bezier(.215,.61,.355,1);*/
   display: flex;
   color: #FFFFFF;

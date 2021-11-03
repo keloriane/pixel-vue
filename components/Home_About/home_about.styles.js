@@ -19,7 +19,7 @@ export const About_Us_Wrapper = styled.div`
   padding: 5px;
   max-width: 500px;
 
-  margin: 11px auto;
+  margin: 90px auto;
 
   h4 {
     font-style: normal;

@@ -1,7 +1,8 @@
 <template>
 
   <main>
-    <div v-if="loaded" id="o-main" class="main_site">
+      <Loader/>
+    <div  id="o-main" class="main_site">
 
       <M_Cursor/>
       <Menu/>
@@ -12,9 +13,7 @@
       <Footer/>
     </div>
 
-    <div v-else class="main_site">
-      <Loader/>
-    </div>
+
   </main>
 
 
@@ -36,7 +35,7 @@ export default {
   components: {Home_Skills, Home_Project, Home_About, About_Technologies, Header, Menu, M_Cursor, Loader},
   data() {
     return {
-      loaded: false,
+
     }
   },
 
@@ -64,41 +63,9 @@ export default {
     }
 
 
-    const letters = [...document.querySelectorAll('.loader_letter')]
-    const loaderAnimation = gsap.timeline()
 
-    loaderAnimation
-      .from("#loader", {
-        duration: 1,
-        x: "100%",
-        ease: "slow(.215,.61,.355,1)"
-      })
-      .from(letters, {
-        duration: 1,
-        y: 50,
-        opacity: 0,
-        stagger: 0.02,
-        ease: "slow(.215,.61,.355,1)"
 
-      }) .to(letters, {
-      duration: 1,
-      y: -50,
-      opacity: 0,
-      stagger: 0.02,
-      ease: "slow(.215,.61,.355,1)"
 
-    })
-      .to("#loader", {
-        duration: 1,
-        x: "100%",
-        opacity:0,
-        ease: "slow(.215,.61,.355,1)"
-      })
-
-    setTimeout(()=> {
-      loaderAnimation.reverse()
-      this.loaded = true
-    },loaderAnimation.duration()*1000)
 
   },
 }
@@ -125,8 +92,8 @@ export default {
 }
 
 .main_site {
-
-  background-color: #fff;
+/*
+  background-color: #fff;*/
 }
 
 .projects__container {
