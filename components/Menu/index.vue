@@ -141,11 +141,11 @@ export default {
                   About
                 </NuxtLink>
               </li>
-              <li class="menu_item">
+<!--              <li class="menu_item">
                 <NuxtLink class="menu_link" to="/projects">
                   Project
                 </NuxtLink>
-              </li>
+              </li>-->
               <li class="menu_item">
                 <NuxtLink class="menu_link" to="/contact">
                   Contact
