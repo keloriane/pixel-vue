@@ -10,11 +10,12 @@ export default {
   name: "M_Cursor",
   mounted() {
     const hoverElements  = [
+      "LI",
       "A",
       "BUTTON",
       "IMG"
     ]
-    const page = document.querySelector("#o-main");
+    const page = document.querySelector(".main_site");
     const cursor = document.querySelector('.cursor');
     const clickEvent = document.querySelector('.click-event');
     const enterMouse= () => {

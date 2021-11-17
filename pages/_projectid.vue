@@ -50,7 +50,7 @@ export default {
   <div id="o-main">
     <Menu />
 <Project_Header :title="project.name" :image="project.headerImage" :platform="project.platform" :technologies="project.technology" :accent="project.accent" />
-  <Project_Story />
+  <Project_Story :story="project.description" :challenges="project.challenges"/>
     <Project_Gallery :images="project.gallery" :accent="project.accent" />
     <Project_Navigation :next-project="nextProject.name" :url="`/${nextProject.slug}`" />
   <Footer />

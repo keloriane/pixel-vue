@@ -13,7 +13,20 @@
   display: inline-block;
 }
 
+.page-enter-active, .page-leave-active {
+  transition: opacity  .5s;
+}
+.page-enter, .page-leave-to {
+  opacity: 0;
 
+}
+
+
+
+
+body {
+  overflow-x: hidden !important;
+}
 
 canvas {
   position: absolute;
@@ -49,7 +62,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
   line-height: 1;
-  overflow-x: hidden;
+
 }
 ol, ul {
   list-style: none;

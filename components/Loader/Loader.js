@@ -59,7 +59,9 @@ export default class Loader {
       }
     })
     const tl = gsap.timeline({delay:1})
+
       .set("body",{ width:"100vw" , height:"100vh", overflow:"hidden" })
+      .set("#o-main" , {opacity:0})
       .add(gsap.effects.curve(this.point))
       .add(this.textAnimation.bind(this))
       .set(this.point , {
@@ -69,9 +71,11 @@ export default class Loader {
       .add(gsap.effects.curve(this.point, {flag: false}), '+=2')
       .set("body",{ width:"100%" , height:"100%", overflow:"inherit" })
       .from('.header-hero',{duration:.5,opacity:0})
-    .from('#menu', {duration: 1,opacity: 0})
+    .from('#o-main', {duration: 1,opacity: 0})
+      .to("main" , {opacity:1, duration:0.5,ease: 'slow(.215,.61,.355,1)', yoyo:true})
       .from(".words-inside", {duration: .4, rotationX:145, y:50 , stagger: 0.07, opacity: 0,ease: 'slow(.215,.61,.355,1)' , yoyo: true})
       .from('.blob-motion-container',{duration:.5, autoAlpha:0, ease: 'slow(.215,.61,.355,1)', yoyo:true})
+
   }
   textAnimation() {
     const tl = gsap.timeline()
@@ -112,4 +116,3 @@ export default class Loader {
     this.ctx.fill()
   }
 }
-

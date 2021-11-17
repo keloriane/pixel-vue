@@ -68,6 +68,7 @@
     margin: auto;
     position: relative;
     background-color: #fff;
+
   }
   .title__scroll   {
     position: absolute;

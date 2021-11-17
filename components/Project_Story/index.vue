@@ -6,15 +6,14 @@
     <div class="story__text_container story_wrapper">
       <h2>The Story</h2>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dignissimos earum voluptates! Assumenda blanditiis corporis cum cumque eum fuga laborum libero necessitatibus, omnis perferendis quas quia similique sit, temporibus tenetur.
+      {{story}}
     </p>
 
     </div>
     <div class="story__challenges_container story_wrapper">
     <h2>The Challenges</h2>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dignissimos earum voluptates! Assumenda blanditiis corporis cum cumque eum fuga laborum libero necessitatibus, omnis perferendis quas quia similique sit, temporibus tenetur.
-    </p>
+      {{challenges}}    </p>
 
     </div>
 
@@ -72,6 +71,10 @@
 import pattern from '~/assets/images/patterns-background.png'
 export default {
   name: "Project_Story",
+  props:{
+    story: String,
+    challenges: String
+  },
   data: function ( ) {
     return {
       pattern

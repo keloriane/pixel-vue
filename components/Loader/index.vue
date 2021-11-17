@@ -3,6 +3,7 @@ import gsap from 'gsap'
 import Loader from './Loader';
 
 
+
 export default {
   name: "Loader",
   mounted() {
@@ -53,7 +54,9 @@ canvas {
   font-size: 14vw;
 }
 #loader-container {
-  position: absolute;
+  position: fixed;
+  z-index: 100;
+  pointer-events: none;
 }
 
 </style>

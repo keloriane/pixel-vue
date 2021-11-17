@@ -11,7 +11,7 @@
       <Home_Project/>
       <Home_Skills/>
       <Footer/>
-    </div>
+    </div>^
 
 
   </main>
@@ -76,11 +76,13 @@ export default {
   @return $pixel / 16 + rem
 }
 
+body {
+  overflow-x: hidden;
+}
 
 .cursor {
   aspect-ratio: 0.5/0.5;
   position: fixed;
-
   &::before {
     position: absolute;
     width: 100%;
