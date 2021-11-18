@@ -3,7 +3,10 @@
     <div class="o-container">
       <div class="info__wrapper">
       <div class="info_title">
+
+
         <h2 :style="`color: ${accent}`">{{ title }}</h2>
+
       </div>
       <div class="info__platform subinfo">
         <h3 :style="`color: ${accent}`" >Platform</h3>
@@ -42,3 +45,15 @@ export default {
 
 }
 </script>
+
+<style>
+  .enter-from {
+    opacity: 0;
+  }
+  .enter-to {
+    opacity: 1;
+  }
+  .enter-active{
+    transition: opacity 2s ease;
+  }
+</style>

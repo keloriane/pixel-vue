@@ -4,6 +4,10 @@ import Menu from "~/components/Menu";
     import gsap from 'gsap';
 import M_Cursor from "~/components/M_Cursor";
 export default {
+  pageTransition: {
+    mode: 'out-in',
+
+  },
   components: {M_Cursor, Menu},
   computed: {
     ...mapState([
@@ -52,6 +56,8 @@ export default {
 </template>
 
   <style lang="scss">
+
+
     .projects_page_container {
       width: 100%;
       max-width: 1280px;

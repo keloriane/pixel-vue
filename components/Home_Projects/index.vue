@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section id="home_projects">
     <div class="projects__container">
       <div class="section_title-action">
         <div class="title-action__wrapper">
@@ -32,11 +32,22 @@ import {Home_Project_Card_Container} from "./home-projects.style";
 import {mapState} from 'vuex';
 
 import Project_Card from "~/components/Home_Projects/Project_Card";
+import gsap from 'gsap'
 export default {
   name : "Home_Project",
   components:{
     Project_Card,
     Home_Project_Card_Container
+  },
+  mounted() {
+    gsap.from('.section_title' , {
+
+      x:300,
+      scrollTrigger:{
+        trigger:"#home_projects",
+        scrub:.05
+      }
+    })
   },
   computed:{
     ...mapState([

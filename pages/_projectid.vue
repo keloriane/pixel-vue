@@ -57,5 +57,14 @@ export default {
   </div>
 </template>
 <style>
+.page-enter-active, .page-leave-active {
+  transition: all .5s;
+
+}
+.page-enter, .page-leave-active {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
 
 </style>

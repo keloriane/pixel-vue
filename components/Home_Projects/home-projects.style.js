@@ -9,7 +9,7 @@ export const Home_Project_Card_Container = styled.div`
 
 `;
 
-export const Project_Item_Card = styled.a`
+export const Project_Item_Card = styled.div`
   width: 100%;
   max-width: 337px;
   height: 400px;

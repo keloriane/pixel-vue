@@ -1,8 +1,8 @@
 <template>
 
   <Project_Item_Card class="hover-state-true" >
-    <NuxtLink :to="url">
-      <img :src="image" alt="">
+    <NuxtLink :to="url" class="layer_blue">
+      <img :src="image" :alt="title" class="project_home_image" >
       <Project_Item_Layer>
         <Project_Item_Layer_Content>
           <Project_Item_Layer_Content_Discipline>
@@ -39,6 +39,7 @@ import {
   Project_Item_Layer_Content_Index,
   Project_Item_Layer_Content_Link
 } from "~/components/Home_Projects/home-projects.style";
+import gsap from 'gsap';
 
 
 export default {
@@ -50,6 +51,36 @@ export default {
     Project_Item_Layer_Content_Discipline,
     Project_Item_Layer_Content_Title,
     Project_Item_Layer_Content_Index,
+
+  },
+  mounted() {
+    gsap.registerPlugin(ScrollTrigger)
+    const projectTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#home__projects",
+        start: "center center"
+      }
+    })
+    projectTl
+    .fromTo('.layer_blue',{
+      width:0,
+      duration:2,
+    },{
+      width:300,
+      stagger:.2,
+    })
+    .fromTo('.project_home_image' , {
+      duration:1,
+      opacity:0,
+      scale:1.5
+    }, {
+      scale:1,
+      opacity:1,
+      stagger:.2,
+      delay:-1,
+      ease: "slow(.215,.61,.355,1)",
+    })
+
 
   },
   props: [

@@ -11,14 +11,9 @@
       <Home_Project/>
       <Home_Skills/>
       <Footer/>
-    </div>^
-
-
+    </div>
   </main>
-
-
 </template>
-
 <script>
 import Header from "~/components/Header/Header";
 import "./../assets/main.css"
