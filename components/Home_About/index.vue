@@ -8,7 +8,7 @@
       </div>
       <Home_Intro>
         <div class="intro__text__wrapper">
-          <p class="intro__text">
+          <p class="intro__text" data-scroll-direction>
             We help our customers from the elaboration of the specifications to the delivery of the <span
             class="accent" >final product.</span>
           </p>
@@ -18,13 +18,13 @@
         <h4 class="accent">
           About us
         </h4>
-        <h3 class="intro__title" >
+        <h3 class="intro__title" data-scroll-direction>
           Pxl-Studio is a brussels based team of experienced freelancers specialised in the design of tailor-made web
           projects.
         </h3>
       </About_Us_Wrapper>
       <About_Us_Work>
-        <p class="intro__text">
+        <p class="intro__text" data-scroll-direction>
           The realization of <span class="accent"> websites, e-commerce or web app</span> is part of our daily work. We
           are passionate about transforming our clients' ideas into stunning, websites that look and feel great. No
           matter what your needs are, <span class="accent">Pxl-studio</span> will do all it takes to provide you with a
@@ -52,18 +52,7 @@
     },
     mounted() {
       gsap.registerPlugin(ScrollTrigger);
-      const elements = gsap.utils.toArray('.intro__text, .intro__title')
-      gsap.from(elements,{
-        opacity:0,
-        y:100,
-        duration:.5,
-        stagger:0.2,
-        scrollTrigger:{
-          trigger: ".pixel-studio__scroll",
-          start: "center center",
 
-        }
-      })
     },
     components: {
       Home_Intro,

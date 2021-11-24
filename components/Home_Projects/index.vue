@@ -45,9 +45,11 @@ export default {
       x:300,
       scrollTrigger:{
         trigger:"#home_projects",
-        scrub:.05
+        markers: true,
+        start: "top top"
       }
     })
+
   },
   computed:{
     ...mapState([

@@ -1,40 +1,31 @@
 <template>
-  <Flipped
-    stagger="list-item"
-    :flipId="flipId" :shouldInvert="shouldFlip"
-
-
-  >
 
     <div class="list__item__container" :class="{isExpanded: expanded}">
-      <Flipped :inverseFlipId="flipId">
-        <div>
-          <Flipped :flipId="flipIdAvatar">
-            <div>
+
+        <div class="list-item-wrapper">
+            <div class="inner-list-container">
               <p
                 class="skill__name"
               >{{ skillName }}</p>
-              <Flipped :flipId="flipImage" @onStart="onStart">
+              <div class="additional-content" v-if="expanded">
+                <div class="text__skills__container">
+                  <p class="skill-description">
+                    {{ skillDescription }}
+                  </p>
+                </div>
+              </div>
 
-                <img class="image-skill" :src="imageSkill" :alt="imageSkill">
-              </Flipped>
+
+
 
             </div>
 
-          </Flipped>
 
-          <div class="additional-content" v-if="expanded">
-            <div class="text__skills__container">
-              <p class="skill-description">
-                {{ skillDescription }}
-              </p>
-            </div>
-          </div>
+
+
         </div>
-      </Flipped>
 
     </div>
-  </Flipped>
 
 </template>
 
@@ -44,32 +35,12 @@ import {mount} from "@vue/test-utils";
 
 export default {
   name: "ListItem",
-  components: {
-    Flipped
-  },
   computed: {
-    flipId() {
-      return `listItem-${this.item}`
 
-    },
-    flipIdAvatar() {
-      return `listItem-avatar-${this.item}`
-    },
-    flipImage() {
-      return `listItem-image-${this.item}`
-    }
   },
   methods: {
 
-    onStart({el}) {
-      el.classList.add('animated-in')
-    },
 
-    shouldFlip(prev, current) {
-
-      return prev === this.item || current === this.item
-
-    }
   },
 
   props: {
@@ -94,6 +65,9 @@ export default {
   z-index: 2;
 
 
+}
+.list-item-wrapper {
+  display: flex;
 }
 
 .skill-description {

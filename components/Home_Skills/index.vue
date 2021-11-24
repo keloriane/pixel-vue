@@ -1,12 +1,8 @@
 <template>
   <section>
-    <div id="home_skills_container" :style="cssProps">
+    <div id="home_skills_container" :style="`backgroundImage: url(${blobImage})`">
       <div class="skills__container">
-        <Flipper :flipKey="active"
-                 spring="gentle"
-                 :decisionData="active"
 
-        >
           <ListContainer class="skill-list-container">
             <li v-for="(item , i) in skills " :key="i+1" @click="handleClick(i)" class="skill-items">
               <ListItem
@@ -20,7 +16,7 @@
               />
             </li>
           </ListContainer>
-        </Flipper>
+
       </div>
     </div>
 
@@ -56,6 +52,7 @@ export default {
   data() {
 
     return {
+      blobImage,
       skills: [
         {
           name: "UX/UI Design",

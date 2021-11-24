@@ -54,32 +54,8 @@ export default {
 
   },
   mounted() {
+
     gsap.registerPlugin(ScrollTrigger)
-    const projectTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#home__projects",
-        start: "center center"
-      }
-    })
-    projectTl
-    .fromTo('.layer_blue',{
-      width:0,
-      duration:2,
-    },{
-      width:300,
-      stagger:.2,
-    })
-    .fromTo('.project_home_image' , {
-      duration:1,
-      opacity:0,
-      scale:1.5
-    }, {
-      scale:1,
-      opacity:1,
-      stagger:.2,
-      delay:-1,
-      ease: "slow(.215,.61,.355,1)",
-    })
 
 
   },

@@ -4,16 +4,16 @@ export default class Loader {
   constructor() {
     const str = "pixl studio."
     let text = ''
-    str.split('').forEach(v => {
+ /*   str.split('').forEach(v => {
       text += `<span class="loader-letter">${v}</span>`
       const arrayLetter = Array.from(text)
       console.log(arrayLetter);
-    })
+    })*/
     document.querySelector('.loader-text').innerHTML = text
-    gsap.set('.loader-letter', {
+ /*   gsap.set('.loader-letter', {
       opacity: 0,
       y: 50
-    })
+    })*/
     this.obj = document.querySelector('#loader')
     this.canvas = document.createElement('canvas');
     this.ctx = this.canvas.getContext('2d')
@@ -60,9 +60,6 @@ export default class Loader {
       }
     })
     const tl = gsap.timeline({delay: 1})
-
-      .set("body", {width: "100vw", height: "100vh", overflow: "hidden"})
-      .set("#o-main", {opacity: 0})
       .add(gsap.effects.curve(this.point))
       .add(this.textAnimation.bind(this))
       .set(this.point, {
@@ -89,7 +86,7 @@ export default class Loader {
 
   textAnimation() {
     const tl = gsap.timeline()
-      .to('.loader-letter', {
+     /* .to('.loader-letter', {
         opacity: 1,
         y: 0,
         duration: 1,
@@ -104,7 +101,7 @@ export default class Loader {
         stagger: {
           each: 0.02
         }
-      })
+      })*/
   }
 
   curveUpdate(flag) {

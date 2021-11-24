@@ -1,16 +1,19 @@
 <template>
 
-  <main>
-      <Loader/>
-    <div  id="o-main" class="main_site">
+  <main >
+    <div v-if="show">
+    <Loader/>
+
+    </div>
+    <div id="o-main" class="main_site" >
 
       <M_Cursor/>
       <Menu/>
-      <Header/>
-      <Home_About/>
-      <Home_Project/>
-      <Home_Skills/>
-      <Footer/>
+      <Header data-scroll-section/>
+      <Home_About data-scroll-section/>
+      <Home_Project data-scroll-section/>
+      <Home_Skills data-scroll-section/>
+      <Footer data-scroll-section/>
     </div>
   </main>
 </template>
@@ -23,39 +26,103 @@ import Home_Project from "~/components/Home_Projects";
 import Home_Skills from "~/components/Home_Skills";
 import Menu from "~/components/Menu"
 import M_Cursor from "~/components/M_Cursor"
-import Loader from '~/components/Loader'
+import Loader from '~/components/Loader';
+import 'locomotive-scroll/dist/locomotive-scroll.css'
 import gsap from "gsap";
+
+
 
 export default {
   components: {Home_Skills, Home_Project, Home_About, About_Technologies, Header, Menu, M_Cursor, Loader},
   data() {
     return {
+      show: true
+    }
+  },
 
+  methods:{
+    showToggle() {
+      setTimeout(()=> {
+        this.show = false;
+      },1000)
     }
   },
 
 
-
-
-
   mounted() {
+    this.showToggle()
+    gsap.registerPlugin(ScrollTrigger)
+    const locoscroll = new LocomotiveScroll({
+      el: document.getElementById("o-main"),
+      smooth: true,
+      damping:0.3
+    })
+
+    locoscroll.init();
+    locoscroll.on('scroll' , ScrollTrigger.update);
+    locoscroll.off("scroll", ScrollTrigger.update);
+    locoscroll.scrollTo('#o-main', 0, 700);
+    locoscroll.on("scroll", ScrollTrigger.update);
+
+    ScrollTrigger.scrollerProxy("#o-main" , {
+      scrollTop(value) {
+        return arguments.length ? locoscroll.scrollTop(value,0,0) : locoscroll.scroll.instance.scroll.y;
+
+      },
+
+      getBoundingClientRect() {
+        return {top:0, left: 0, width: window.innerWidth , height: window.innerHeight};
+      }, pinType: document.getElementById("o-main").style.transform ? "transform" : "fixed"
+    })
+
+    ScrollTrigger.addEventListener("refresh" , () => locoscroll.update());
+    ScrollTrigger.refresh();
 
 
+    const projectTl = gsap.timeline()
+    ScrollTrigger.create({
+      trigger: "#home__projects",
+      id: "scrub",
+      start: "40% 20%",
+      scroller: "#o-main",
+      animation: projectTl,
 
+    })
+    projectTl
+      .fromTo('.layer_blue',{
+        width:0,
+        duration:2,
+      },{
+        width:300,
+        stagger:.2,
+      })
+      .fromTo('.project_home_image' , {
+        duration:1.8,
+        opacity:0,
+        scale:1.5
+      }, {
+        scale:1,
+        opacity:1,
+        stagger:.2,
+        delay:-1,
+        ease: "slow(.215,.61,.355,1)",
+      })
 
-    if (process.browser) {
-      let container = document.querySelector("#scroll-container");
-      let height;
-
-      function setHeight() {
-        height = container.clientHeight
-        document.body.style.height = `${height}px`;
+    const elements = gsap.utils.toArray('.intro__text, .intro__title')
+    gsap.from(elements,{
+      opacity:0,
+      y:100,
+      duration:.5,
+      stagger:0.2,
+      scrollTrigger:{
+        scroller: "#o-main",
+        trigger: ".pixel-studio__scroll",
+        start: "10% 10%",
+        id: "scrub"
 
       }
+    })
 
-      ScrollTrigger.addEventListener("refreshInit", setHeight)
-
-    }
 
 
 
@@ -71,13 +138,18 @@ export default {
   @return $pixel / 16 + rem
 }
 
+#o-main {
+  overflow: auto;
+}
+
 body {
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 
 .cursor {
   aspect-ratio: 0.5/0.5;
   position: fixed;
+
   &::before {
     position: absolute;
     width: 100%;
@@ -89,8 +161,8 @@ body {
 }
 
 .main_site {
-/*
-  background-color: #fff;*/
+  /*
+    background-color: #fff;*/
 }
 
 .projects__container {
