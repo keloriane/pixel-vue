@@ -1,21 +1,21 @@
 <template>
 
   <main >
-    <div v-if="show">
-    <Loader/>
-
+    <div>
+   <Loader/>
     </div>
     <div id="o-main" class="main_site" >
 
       <M_Cursor/>
       <Menu/>
-      <Header data-scroll-section/>
-      <Home_About data-scroll-section/>
-      <Home_Project data-scroll-section/>
-      <Home_Skills data-scroll-section/>
-      <Footer data-scroll-section/>
+      <Header />
+      <Home_About />
+      <Home_Project />
+      <Home_Skills />
+      <Footer />
     </div>
   </main>
+
 </template>
 <script>
 import Header from "~/components/Header/Header";
@@ -54,8 +54,6 @@ export default {
     gsap.registerPlugin(ScrollTrigger)
     const locoscroll = new LocomotiveScroll({
       el: document.getElementById("o-main"),
-      smooth: true,
-      damping:0.3
     })
 
     locoscroll.init();
@@ -73,7 +71,8 @@ export default {
       getBoundingClientRect() {
         return {top:0, left: 0, width: window.innerWidth , height: window.innerHeight};
       }, pinType: document.getElementById("o-main").style.transform ? "transform" : "fixed"
-    })
+    });
+
 
     ScrollTrigger.addEventListener("refresh" , () => locoscroll.update());
     ScrollTrigger.refresh();
@@ -117,7 +116,7 @@ export default {
       scrollTrigger:{
         scroller: "#o-main",
         trigger: ".pixel-studio__scroll",
-        start: "10% 10%",
+        start: "60% 60%",
         id: "scrub"
 
       }

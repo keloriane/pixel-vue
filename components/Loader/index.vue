@@ -7,9 +7,8 @@ import Loader from './Loader';
 export default {
   name: "Loader",
   mounted() {
-    addEventListener('load', _ => {
       new Loader();
-    })
+
   }
 }
 </script>

@@ -41,15 +41,12 @@ export default {
   },
   mounted() {
     gsap.from('.section_title' , {
-
       x:300,
       scrollTrigger:{
         trigger:"#home_projects",
-        markers: true,
         start: "top top"
       }
     })
-
   },
   computed:{
     ...mapState([
@@ -67,6 +64,7 @@ section{
   background-color: #fff;
   padding-bottom: 318px;
   padding-top: 168px;
+  overflow: hidden;
 }
 
 .project_section_title {

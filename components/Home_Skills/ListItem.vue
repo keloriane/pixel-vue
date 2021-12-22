@@ -1,7 +1,6 @@
 <template>
 
     <div class="list__item__container" :class="{isExpanded: expanded}">
-
         <div class="list-item-wrapper">
             <div class="inner-list-container">
               <p
@@ -14,19 +13,9 @@
                   </p>
                 </div>
               </div>
-
-
-
-
             </div>
-
-
-
-
         </div>
-
     </div>
-
 </template>
 
 <script>
@@ -39,7 +28,6 @@ export default {
 
   },
   methods: {
-
 
   },
 

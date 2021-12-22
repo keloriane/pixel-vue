@@ -36,9 +36,20 @@ export default {
 
 
   },
+  data(){
+    return {
+
+    lsm: null
+    }
+  },
 
   methods: {
-  }
+  },
+  mounted(){
+      gsap.registerPlugin(ScrollTrigger);
+    }
+
+
 
 
 
@@ -47,15 +58,18 @@ export default {
 
 </script>
 <template>
-  <div id="o-main">
+  <main id="o-project" >
     <Menu />
 <Project_Header :title="project.name" :image="project.headerImage" :platform="project.platform" :technologies="project.technology" :accent="project.accent" />
   <Project_Story :story="project.description" :challenges="project.challenges"/>
     <Project_Gallery :images="project.gallery" :accent="project.accent" />
     <Project_Navigation :next-project="nextProject.name" :url="`/${nextProject.slug}`" />
   <Footer />
-  </div>
+  </main>
 </template>
+
+
+
 <style>
 .page-enter-active, .page-leave-active {
   transition: all .5s;

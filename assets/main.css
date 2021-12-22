@@ -8,6 +8,10 @@
   box-sizing: border-box;
 }
 
+#o-main {
+  overflow:inherit !important;
+}
+
 .accent {
   color: #EB5757;
   display: inline-block;

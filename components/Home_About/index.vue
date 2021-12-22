@@ -67,6 +67,7 @@
   width: 80vw;
   background-color: #fff;
   margin: auto;
+
 }
   .about__section {
     width: 100%;

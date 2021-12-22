@@ -1,6 +1,7 @@
 <template>
-  <main>
+  <main id="o-about" >
     <Menu />
+
     <About_Header/>
     <About_Technologies :item="techno.icons" :title="techno.title" :text="techno.text"/>
     <About_Technologies :item="software.icons" :title="software.title" :text="software.text"/>
@@ -15,6 +16,7 @@ import About_Header from "~/components/About_Header/";
 import About_Technologies from "~/components/About_Technologies";
 import Footer from "~/components/Footer/Footer";
 import Menu from "~/components/Menu";
+import gsap from "gsap";
 
 export default {
   components: {
@@ -26,6 +28,7 @@ export default {
   },
   data() {
     return {
+      lsm: null,
       techno: {
         icons: [
           {name: "Node js", image: "./assets/images/nodejs.png"},
@@ -55,6 +58,9 @@ export default {
         text: "Each website we design is unique, meaning no templates and no recycled work. We want to make sure each client’s vision is represented in its truest form, so we start from the beginning. Our process varies from client to client and is broken up into curated phases. It goes something like this: discovery, web structure,  web design and web development. Don’t worry, we’ll explain all of this to you during the process."
       }
     }
+  },
+  mounted() {
+    gsap.registerPlugin(ScrollTrigger)
   }
 }
 
