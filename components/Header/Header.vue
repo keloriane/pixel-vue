@@ -198,6 +198,7 @@ export default {
   position: absolute;
   top: 70%;
   left: 50%;
+  pointer-events: none;
 
   &:hover {
     transform: scale(1.5);
@@ -211,7 +212,6 @@ export default {
   animation: action__rotate 10s infinite linear;
   cursor: pointer;
   transform-origin: center center;
-
 }
 
 .chars:nth-last-child(-n+3) {
