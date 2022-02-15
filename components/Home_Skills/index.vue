@@ -119,6 +119,7 @@ section {
 
   z-index: 2;
   margin-top: 30px;
+  cursor: pointer;
 
 }
 

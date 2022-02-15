@@ -3,15 +3,16 @@
     <div class="list__item__container" :class="{isExpanded: expanded}">
         <div class="list-item-wrapper">
             <div class="inner-list-container">
-              <p
-                class="skill__name"
-              >{{ skillName }}</p>
+              <li
+                class="skill__name" :class="{skill__active: expanded}"
+              >{{ skillName }}</li>
               <div class="additional-content" v-if="expanded">
                 <div class="text__skills__container">
                   <p class="skill-description">
                     {{ skillDescription }}
                   </p>
                 </div>
+                <img :src="imageSkill" alt="" class="image-skill">
               </div>
             </div>
         </div>
@@ -37,8 +38,6 @@ export default {
     expanded: Boolean,
     skillName: String,
     item: Number,
-
-
   }
 }
 
@@ -74,15 +73,17 @@ export default {
 
 .image-skill {
   position: absolute;
-  right: -70%;
+  right: -50%;
   top: 2%;
   z-index: -1;
-
 }
 
 .skill__name:hover {
   color: #EB5757;
+}
 
+.skill__active {
+  color: #EB5757;
 }
 
 .skill__name {
