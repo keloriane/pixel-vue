@@ -84,11 +84,44 @@
             <div class="contact_title">
               <h2>Get in touch with us </h2>
             </div>
-            <ul>
-              <li>Start a Project ?</li>
-              <li>Chat with us ?</li>
-              <li>Ask a question ?</li>
+            <ul v-if="!selectedOptions">
+              <li @click="SelectContact('Start a Project ?')">Start a Project ?</li>
+              <li @click="SelectContact('Chat with us ?')">Chat with us ?</li>
+              <li @click="SelectContact('Ask a question ?')">Ask a question ?</li>
             </ul>
+            <div v-if="selectedOptions">
+              <form action="" class="contact_form" @submit.prevent="SubmitForm" ref="contact_form">
+                <div class="contact_form_input">
+                  <div>
+                    <label for="subject">Subject</label>
+                    <input type="text" v-model="subject" id="subject" name="subject" readonly>
+                  </div>
+                  <div>
+                    <label for="fullname">Fullname</label>
+                    <input type="text" v-model="fullname" id="fullname" name="fullname">
+                  </div>
+                  <div>
+                    <label for="email">Email</label>
+                    <input type="email" v-model="email" id="email" name="email">
+                  </div>
+                  <div>
+                    <label for="message">Message</label>
+                    <textarea 
+                      type="text" 
+                      v-model="message" 
+                      id="message"
+                      rows="4"
+                      name="message"
+                      ></textarea>
+                  </div>
+                </div>
+                <div class="contact_form_submit">
+                  <div>
+                    <button type="submit" ref="submit_btn">send<br>message</button>
+                  </div>
+                </div>
+              </form>
+            </div>
           </div>
           <div class="contact_info_wrapper">
             <div class="contact__information">
@@ -125,12 +158,44 @@
 <script>
 import Footer from './../components/Footer/Footer'
 import Menu from "~/components/Menu";
+import { init, sendForm } from "@emailjs/browser"
+
+init("user_tKtbtoCNjutn4KT7MHHiA");
 
 export default {
   name: "Contact",
+  data() {
+    return {
+      selectedOptions: false,
+      fullname: "",
+      email: "",
+      message: "",
+      subject: "",
+      confirm_message: "Thank you!"
+    }
+  },
   components: {
     Menu,
     Footer
+  },
+  methods: {
+    SelectContact(value) {
+      this.selectedOptions = true;
+      this.subject = value;
+    },
+    SubmitForm(){
+      sendForm("contact_service", "template_pxl_mail", this.$refs.contact_form, "user_tKtbtoCNjutn4KT7MHHiA")
+      .then(function() {
+      }, function(error) {
+          console.log('FAILED...', error);
+      });
+      
+      this.fullname = "";
+      this.email = "";
+      this.message = "";
+      this.$refs.submit_btn.innerText = this.confirm_message;
+      this.$refs.submit_btn.className = "submitted";
+    }
   }
 }
 </script>
@@ -235,11 +300,79 @@ export default {
       align-items: center;
       letter-spacing: 0.025em;
       color: transparent;
+      cursor: pointer;
 
       &:hover {
         color: black;
       }
     }
   }
+}
+
+.contact_form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  width: 320px;
+
+  .contact_form_input {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+
+    div {
+      display: flex;
+      flex-direction: column;
+  
+    label {
+      color: #939393CC;
+      font-size: 16px;
+      font-weight: 400;
+      margin-top: 15px;
+    }
+  
+    label:active {
+      color: black;
+    }
+  
+    input, textarea {
+      border: none;
+      background: transparent;
+      outline: none;
+      margin: 5px 0;
+      font-size: 16px;
+      padding: 15px 5px;
+      
+    }
+  
+    textarea {
+      resize: none;
+    }
+  
+    input:focus, textarea:focus {
+      border-bottom: solid 2px black;
+    }
+    
+    }
+  }
+
+  .contact_form_submit {
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+      background-color: #EB5757;
+      color: white;
+      text-decoration: underline;
+      border: none;
+      padding: 10px;
+      border-radius: 15px;
+    }
+
+    .submitted {
+      pointer-events: none;
+    }
+  }
+
 }
 </style>
